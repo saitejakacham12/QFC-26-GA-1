@@ -2,14 +2,6 @@ import numpy as np
 
 
 def compute_cholesky(matrix):
-    """
-    Cholesky decomposition: A = L * L^T
-    Uses the Cholesky-Banachiewicz algorithm.
-
-    For each entry:
-      diagonal:     L[i,i] = sqrt( A[i,i] - sum_{k<i}( L[i,k]^2 ) )
-      below diag:   L[i,j] = ( A[i,j] - sum_{k<j}( L[i,k]*L[j,k] ) ) / L[j,j]
-    """
     if matrix.shape[0] != matrix.shape[1]:
         raise ValueError("Cholesky decomposition requires a square matrix.")
     if not np.allclose(matrix, matrix.T):

@@ -2,14 +2,6 @@ import numpy as np
 
 
 def compute_lu(matrix):
-    """
-    LU decomposition without pivoting using Gaussian elimination.
-    Returns L and U matrices plus a step-by-step log for visualization.
-
-    Formula:  A = L * U
-      - L[j,i] = U[j,i] / U[i,i]          (multiplier)
-      - U[j]   = U[j] - L[j,i] * U[i]     (row elimination)
-    """
     if matrix.shape[0] != matrix.shape[1]:
         raise ValueError("LU decomposition requires a square matrix.")
 

@@ -17,13 +17,12 @@ from utils.helpers import (
     generate_random_matrix,
     time_execution,
 )
-
-st.set_page_config(
-    page_title="Matrix Decomposition Studio",
-    page_icon="🧮",
-    layout="wide",
-)
-
+st.set_page_config(page_title="Assignment 1(QFC'26)", layout="wide")
+st.title("Assignment 1(QFC'26)")
+group = "Group - 3 "
+names="Submited by : Pulkit Chouhan , Saiteja Kacham , Arka pal"
+st.header(group,text_alignment="center")
+st.subheader(names,text_alignment="center")
 st.markdown("""
 <style>
 

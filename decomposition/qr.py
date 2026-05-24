@@ -2,15 +2,6 @@ import numpy as np
 
 
 def compute_qr(matrix):
-    """
-    QR decomposition via the classical Gram-Schmidt process.
-
-    Formula:
-      v_j = a_j - sum_{i<j}( (q_i · a_j) * q_i )   (projection removal)
-      R[i,j] = q_i · a_j                              (projection coefficient)
-      R[j,j] = ||v_j||                                (column norm)
-      q_j    = v_j / R[j,j]                           (normalise)
-    """
     A = matrix.astype(float).copy()
     n, m = A.shape
 

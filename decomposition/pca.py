@@ -2,19 +2,6 @@ import numpy as np
 
 
 def compute_pca(matrix, n_components=None):
-    """
-    Principal Component Analysis (PCA) from scratch.
-
-    Steps:
-      1. Center the data: X_c = X - mean(X)
-      2. Compute covariance matrix: C = (X_c^T * X_c) / (n-1)
-      3. Eigendecompose C: C = V * Lambda * V^T
-      4. Sort eigenvectors by eigenvalue (descending)
-      5. Project: X_pca = X_c * V[:, :k]
-      6. Explained variance ratio: lambda_i / sum(lambda)
-
-    Input: matrix of shape (n_samples, n_features)
-    """
     X = matrix.astype(float).copy()
     n_samples, n_features = X.shape
     steps = []
@@ -23,7 +10,7 @@ def compute_pca(matrix, n_components=None):
         n_components = min(n_samples, n_features)
     n_components = min(n_components, min(n_samples, n_features))
 
-    # Step 1 – centre
+    # finding centre
     mean_vec = X.mean(axis=0)
     X_c = X - mean_vec
     steps.append({
@@ -34,7 +21,7 @@ def compute_pca(matrix, n_components=None):
         "extra": f"Mean vector: {np.round(mean_vec, 4).tolist()}",
     })
 
-    # Step 2 – covariance
+    # finding covariance
     if n_samples > 1:
         cov = (X_c.T @ X_c) / (n_samples - 1)
     else:
@@ -46,7 +33,7 @@ def compute_pca(matrix, n_components=None):
         "label": "Covariance matrix C",
     })
 
-    # Step 3 – eigen
+    # finding eigen
     eigenvalues, eigenvectors = np.linalg.eigh(cov)
     # eigh returns ascending order; flip to descending
     idx = eigenvalues.argsort()[::-1]
@@ -60,7 +47,7 @@ def compute_pca(matrix, n_components=None):
         "eigenvalues": eigenvalues.copy(),
     })
 
-    # Step 4 – select top-k
+    # select top-k
     components = eigenvectors[:, :n_components]
     selected_vals = eigenvalues[:n_components]
     steps.append({
@@ -71,7 +58,7 @@ def compute_pca(matrix, n_components=None):
         "eigenvalues": selected_vals.copy(),
     })
 
-    # Step 5 – project
+    # project
     X_pca = X_c @ components
     steps.append({
         "desc": "Step 5 – Project data onto principal components",
@@ -80,7 +67,7 @@ def compute_pca(matrix, n_components=None):
         "label": "Projected data (X_pca)",
     })
 
-    # Step 6 – explained variance
+    # explained variance
     total_var = float(eigenvalues.sum()) if eigenvalues.sum() > 0 else 1.0
     explained = eigenvalues[:n_components] / total_var
     steps.append({

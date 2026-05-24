@@ -2,16 +2,6 @@ import numpy as np
 
 
 def compute_svd(matrix):
-    """
-    Singular Value Decomposition:  A = U * Sigma * V^T
-
-    Steps:
-      1. Compute A^T * A
-      2. Eigendecompose A^T A  →  eigenvalues λ_i, eigenvectors V
-      3. Singular values σ_i = sqrt(λ_i)
-      4. Build U: u_i = (A * v_i) / σ_i
-      5. Assemble Sigma (diagonal matrix of σ_i)
-    """
     A = matrix.astype(float).copy()
     n, m = A.shape
     steps = []

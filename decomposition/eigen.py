@@ -2,16 +2,6 @@ import numpy as np
 
 
 def compute_eigen(matrix, max_iters=100):
-    """
-    Eigenvalue decomposition via QR iteration (Francis algorithm idea).
-    A = V * Lambda * V^{-1}
-
-    Each iteration:
-      1. QR-decompose A_k  →  Q, R
-      2. A_{k+1} = R * Q     (similar to A_k)
-      3. Accumulate V = V * Q
-    Diagonal of A_k converges to eigenvalues.
-    """
     if matrix.shape[0] != matrix.shape[1]:
         raise ValueError("Eigenvalue decomposition requires a square matrix.")
 

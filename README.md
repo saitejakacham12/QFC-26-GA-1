@@ -1,4 +1,4 @@
-# QFC-26-GA-1 BY GP-3
+# Matrix Decomposition Studio
 
 A Streamlit app that lets you enter any matrix, choose a decomposition, and
 watch every single calculation unfold step-by-step — exactly like Python Tutor
@@ -39,17 +39,20 @@ matrix_studio/
 ## Running locally
 
 ```bash
+python --version
+python -m venv venv
+venv\Scripts\activate
 pip install -r requirements.txt
 streamlit run app.py
 ```
 
 ## Notes on the merged codebase
 
-- **A1 (Assignment1)** had better manual implementations of each algorithm
+- **pulkit chouhan** had better manual implementations of each algorithm
   (Gram-Schmidt QR, Banachiewicz Cholesky, QR-iteration eigenvalues) and
-  richer UI with heatmaps and downloads.
-- **GA1** had cleaner object-oriented structure, better error messages, and
-  a nicer CSS-styled layout.
-- This merged version takes the manual algorithms from A1 (educational value),
+  richer UI with heatmaps and downloads reference : https://drive.google.com/drive/folders/1cJTb5eGK109aQOI2jfnwkZTa2IXpuo-m?usp=sharing. 
+- **Arka Pal** had cleaner object-oriented structure, better error messages, and
+  a nicer CSS-styled layout refernce : https://github.com/arka-mx/ga1. 
+- **Saiteja ga-1** This merged version takes the manual algorithms from A1 (educational value),
   the validation and property-checking logic from GA1, and adds the
   step-by-step visualiser and PCA on top.
