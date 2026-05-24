@@ -1,4 +1,4 @@
-# Matrix Decomposition Studio
+# QFC-26-GA-1 BY GP-3
 
 A Streamlit app that lets you enter any matrix, choose a decomposition, and
 watch every single calculation unfold step-by-step — exactly like Python Tutor
